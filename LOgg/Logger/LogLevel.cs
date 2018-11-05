@@ -1,4 +1,4 @@
-﻿namespace ZTPProj3.Logger
+﻿namespace Logg.Logger
 {
     public enum LogLevel
     {

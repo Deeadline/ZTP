@@ -1,10 +1,10 @@
-﻿using JetBrains.Annotations;
+﻿using Logg.Output;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using ZTPProj3.Outputter;
+//Runtime Checking only on Debug builds.
 
-namespace ZTPProj3.Logger
+namespace Logg.Logger
 {
     public class Logger
     {
@@ -17,10 +17,7 @@ namespace ZTPProj3.Logger
             { LogLevel.Error, $"ERROR: {DateTime.Now:G} :" },
         };
 
-        public Logger(Output output)
-        {
-            _outputService.SetOutputter(output);
-        }
+        public Logger(Output.Output output) => _outputService.SetOutputter(output);
 
         public void Log(LogLevel level, string message)
         {
