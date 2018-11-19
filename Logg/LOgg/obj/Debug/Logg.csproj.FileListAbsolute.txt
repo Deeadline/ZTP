@@ -1,0 +1,14 @@
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\bin\Debug\Logg.exe.config
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\bin\Debug\Logg.exe
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\bin\Debug\Logg.pdb
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Logg.exe
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Logg.pdb
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\bin\Debug\CodeContracts\Logg.Contracts.dll
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\bin\Debug\CodeContracts\Logg.Contracts.pdb
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Decl\Logg.exe
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Decl\Logg.pdb
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Loggccrefgen.rsp
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Logg.rewritten
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\CodeContractAnalysisRun.log
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Logg.csproj.CoreCompileInputs.cache
+C:\Users\MIKI\Desktop\ZTP\Logg\Logg\obj\Debug\Logg.csprojAssemblyReference.cache
