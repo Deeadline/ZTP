@@ -1,0 +1,7 @@
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\bin\Debug\Admin.exe.config
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\bin\Debug\Admin.exe
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\bin\Debug\Admin.pdb
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\obj\Debug\Admin.csprojAssemblyReference.cache
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\obj\Debug\Admin.csproj.CoreCompileInputs.cache
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\obj\Debug\Admin.exe
+C:\Users\MIKI\Desktop\ZTP\Logg\Admin\obj\Debug\Admin.pdb
