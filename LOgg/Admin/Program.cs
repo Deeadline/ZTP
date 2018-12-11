@@ -6,7 +6,7 @@ namespace Admin
     {
         static void Main(string[] args)
         {
-            //ServerAdminConnection.Connect();
+            ServerAdminConnection.Connect();
         }
     }
 }
