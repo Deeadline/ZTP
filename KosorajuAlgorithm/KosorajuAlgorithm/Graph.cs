@@ -8,17 +8,17 @@ namespace KosorajuAlgorithm
     {
         public int V { get; set; }
         public LinkedList<int>[] AdjacencyLists { get; set; }
-        public List<int>[] ScssList { get; set; }
+        public LinkedList<int>[] ScssList { get; set; }
 
         public Graph(int V)
         {
             this.V = V;
             AdjacencyLists = new LinkedList<int>[V];
-            ScssList = new List<int>[V];
+            ScssList = new LinkedList<int>[V];
             for (var i = 0; i < V; i++)
             {
                 AdjacencyLists[i] = new LinkedList<int>();
-                ScssList[i] = new List<int>();
+                ScssList[i] = new LinkedList<int>();
             }
         }
 
@@ -62,6 +62,8 @@ namespace KosorajuAlgorithm
                     Console.WriteLine();
                 }
             }
+
+            ScssList = transposedGraph.ScssList;
         }
 
         /// <summary>
@@ -108,7 +110,7 @@ namespace KosorajuAlgorithm
         private void Dfs(int v, IList<bool> visited, int cter)
         {
             visited[v] = true;
-            ScssList[cter].Add(v);
+            ScssList[cter].AddLast(v);
             Console.Write($"{v} ");
 
             var enumerator = AdjacencyLists[v].GetEnumerator();
