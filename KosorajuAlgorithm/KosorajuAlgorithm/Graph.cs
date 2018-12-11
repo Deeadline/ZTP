@@ -22,10 +22,23 @@ namespace KosorajuAlgorithm
             }
         }
 
-        public void SetChildren()
-        {
-
-        }
+        //public void SetChildren()
+        //{
+        //    if (ScssList.Length > 1)
+        //    {
+        //        Console.WriteLine("TU JESTEM");
+        //    }
+        //    else
+        //    {
+        //        foreach (var linkedList in ScssList)
+        //        {
+        //            foreach (var y in linkedList)
+        //            {
+                        
+        //            }
+        //        }
+        //    }
+        //}
 
         public bool HasCycle() => ScssList.Any(x => x.Count > 1);
 
@@ -63,7 +76,7 @@ namespace KosorajuAlgorithm
                 }
             }
 
-            ScssList = transposedGraph.ScssList;
+            ScssList = transposedGraph.ScssList.Where(s => s.Count > 0).ToArray();
         }
 
         /// <summary>
