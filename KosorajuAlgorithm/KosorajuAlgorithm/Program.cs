@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using System.Text;
 
 namespace KosorajuAlgorithm
@@ -11,6 +10,10 @@ namespace KosorajuAlgorithm
         {
             var graph = ReadFromFile();
             graph.PrintScss();
+            var message = graph.HasCycle()
+                ? $"Cannot set children in one row and minimum rows are equal to {graph.GetMinimalSizeOfRows()}"
+                : "We can set children in one row";
+            Console.WriteLine(message);
             Console.ReadKey();
         }
         private static Graph ReadFromFile()
@@ -24,7 +27,7 @@ namespace KosorajuAlgorithm
                     using (var reader = new StreamReader(fileStream, Encoding.UTF8, true, 128))
                     {
                         string line;
-                        while (( line = reader.ReadLine() ) != null)
+                        while ((line = reader.ReadLine()) != null)
                         {
                             if (line.Length < 2)
                             {
