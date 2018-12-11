@@ -8,16 +8,28 @@ namespace KosorajuAlgorithm
     {
         public int V { get; set; }
         public LinkedList<int>[] AdjacencyLists { get; set; }
+        public List<int>[] ScssList { get; set; }
 
         public Graph(int V)
         {
             this.V = V;
             AdjacencyLists = new LinkedList<int>[V];
+            ScssList = new List<int>[V];
             for (var i = 0; i < V; i++)
             {
                 AdjacencyLists[i] = new LinkedList<int>();
+                ScssList[i] = new List<int>();
             }
         }
+
+        public void SetChildren()
+        {
+
+        }
+
+        public bool HasCycle() => ScssList.Any(x => x.Count > 1);
+
+        public int GetMinimalSizeOfRows() => ScssList.Max(x => x.Count);
 
         public void AddEdge(int v, int w) => AdjacencyLists[v].AddLast(w);
 
@@ -39,12 +51,14 @@ namespace KosorajuAlgorithm
             //Second DFS
             var transposedGraph = TransposeGraph();
             visited = Enumerable.Repeat(false, V).ToArray();
+            var cter = 0;
             while (stack.Count > 0)
             {
                 var v = stack.Pop();
                 if (!visited[v])
                 {
-                    transposedGraph.Dfs(v, visited);
+                    transposedGraph.Dfs(v, visited, cter);
+                    cter++;
                     Console.WriteLine();
                 }
             }
@@ -91,16 +105,17 @@ namespace KosorajuAlgorithm
         /// </summary>
         /// <param name="v"></param>
         /// <param name="visited"></param>
-        private void Dfs(int v, IList<bool> visited)
+        private void Dfs(int v, IList<bool> visited, int cter)
         {
             visited[v] = true;
+            ScssList[cter].Add(v);
             Console.Write($"{v} ");
 
             var enumerator = AdjacencyLists[v].GetEnumerator();
             while (enumerator.MoveNext())
             {
                 if (!visited[enumerator.Current])
-                    Dfs(enumerator.Current, visited);
+                    Dfs(enumerator.Current, visited, cter);
             };
         }
     }
