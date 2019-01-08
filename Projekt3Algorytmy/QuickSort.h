@@ -3,6 +3,7 @@
 #include <vector>
 #include <iterator>
 #include <math.h>
+#include <chrono>
 #include <ctime>
 class QuickSort
 {
@@ -17,5 +18,6 @@ private:
 	std::vector<int> Fill();
 	int distance;
 	size_t size;
+	int pairs;
 };
 

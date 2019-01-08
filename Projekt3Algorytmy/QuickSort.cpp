@@ -6,6 +6,7 @@ QuickSort::QuickSort(int size, int distance)
 {
 	this->distance = distance;
 	this->size = size;
+	this->pairs = 0;
 }
 
 QuickSort::~QuickSort()
@@ -15,7 +16,7 @@ QuickSort::~QuickSort()
 void QuickSort::FindPairs()
 {
 	std::vector<int> myArray = Fill();
-	clock_t start = clock();
+	auto start = std::chrono::system_clock::now();
 
 	Sort(myArray, 0, size - 1);
 
@@ -29,14 +30,15 @@ void QuickSort::FindPairs()
 			}
 			else
 			{
-				std::cout << "Para punktow: " << myArray[i] << ", " << myArray[j] << "\n";
+				//std::cout << "Para punktow: " << myArray[i] << ", " << myArray[j] << "\n";
+				pairs++;
 			}
 		}
 	}
-	clock_t end = clock();
-
-	double time = ((double)(end - start)) / CLOCKS_PER_SEC;
-	std::cout << "Time: " << time;
+	auto end = std::chrono::system_clock::now();
+	std::chrono::duration<double> elapsed_seconds = (end - start);
+	std::cout << "Time: " << elapsed_seconds.count() << "s\n";
+	std::cout << "Ilosc par: " << pairs << "\n";
 }
 
 void QuickSort::Sort(std::vector<int> myArray, int a, int b)
@@ -52,17 +54,17 @@ void QuickSort::Sort(std::vector<int> myArray, int a, int b)
 
 int QuickSort::Split(std::vector<int> myArray, int a, int b)
 {
-	int element = myArray[a];
+	int x = myArray[a];
 	int i = a;
 	int j = b;
 	int w = 0;
 	while (true)
 	{
-		while (myArray[j] > element)
+		while (myArray[j] > x)
 		{
 			j--;
 		}
-		while (myArray[j] < element)
+		while (myArray[i] < x)
 		{
 			i++;
 		}

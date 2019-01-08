@@ -8,7 +8,6 @@ Bucket::Bucket(int size, int distance)
 	this->distance = distance;
 	MyArray.resize(size);
 	Fill();
-	Print();
 }
 
 Bucket::~Bucket()
@@ -18,7 +17,7 @@ Bucket::~Bucket()
 void Bucket::FindPairs()
 {
 	int pairs = 0;
-	clock_t start = clock();
+	auto start = std::chrono::system_clock::now();
 
 	Hash();
 
@@ -30,7 +29,7 @@ void Bucket::FindPairs()
 			{
 				for (auto lists2 = lists + 1; lists2 != a.second.end(); ++lists2) // bierzemy drugi element listy
 				{
-					std::cout << "Para punktow: " << MyArray[*lists] << ", " << MyArray[*lists2] << std::endl;
+					//std::cout << "Para punktow: " << MyArray[*lists] << ", " << MyArray[*lists2] << std::endl;
 				}
 			}
 			pairs = pairs + ((a.second.size()*(a.second.size() - 1)) / 2); //wszystkie pary
@@ -46,7 +45,7 @@ void Bucket::FindPairs()
 				{
 					if ((abs(MyArray[*lists] - MyArray[*lists2]) < distance) && (abs(MyArray[*lists] - MyArray[*lists2]) > 0)) //porownujemy odeglosc i sprawdzamy wystepowanie powtorzen
 					{
-						std::cout << "Para punktow: " << MyArray[*lists] << ", " << MyArray[*lists2] << std::endl;
+						//std::cout << "Para punktow: " << MyArray[*lists] << ", " << MyArray[*lists2] << std::endl;
 						pairs++;
 					}
 				}
@@ -54,10 +53,10 @@ void Bucket::FindPairs()
 		}
 	}
 
-	clock_t end = clock();
-	double time = ((double)(end - start)) / CLOCKS_PER_SEC;
-	std::cout << "Time: " << time << std::endl;
-	std::cout << "Ilosc par: " << pairs;
+	auto end = std::chrono::system_clock::now();
+	std::chrono::duration<double> elapsed_seconds = end - start;
+	std::cout << "Time: " << elapsed_seconds.count() << "s\n";
+	std::cout << "Ilosc par: " << pairs << "\n";
 }
 
 void Bucket::Fill()

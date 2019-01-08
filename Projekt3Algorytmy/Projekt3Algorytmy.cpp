@@ -3,14 +3,14 @@
 
 int main()
 {
-	Bucket* bucket = new Bucket(100, 3);
+	Bucket* bucket = new Bucket(10000, 100);
 	bucket->FindPairs();
 
-	//QuickSort* quickSort = new QuickSort(100, 3);
-	//quickSort->FindPairs();
+	QuickSort* quickSort = new QuickSort(10000, 100);
+	quickSort->FindPairs();
 
 	delete bucket;
-	//delete quickSort;
+	delete quickSort;
 
 	return 0;
 }
