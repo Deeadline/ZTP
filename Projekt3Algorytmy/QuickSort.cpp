@@ -2,9 +2,9 @@
 #include "QuickSort.h"
 
 
-QuickSort::QuickSort(int size, int distance)
+QuickSort::QuickSort(long int size, long int distance)
 {
-	this->distance = distance;
+	this->R = distance;
 	this->size = size;
 	this->pairs = 0;
 }
@@ -15,7 +15,7 @@ QuickSort::~QuickSort()
 
 void QuickSort::FindPairs()
 {
-	std::vector<int> myArray = Fill();
+	std::vector<long int> myArray = Fill();
 	auto start = std::chrono::system_clock::now();
 
 	Sort(myArray, 0, size - 1);
@@ -24,7 +24,7 @@ void QuickSort::FindPairs()
 	{
 		for (int j = i + 1; j < size; j++)
 		{
-			if (std::abs(myArray[i] - myArray[j]) >= distance)
+			if (std::abs(myArray[i] - myArray[j]) >= R)
 			{
 				break;
 			}
@@ -41,7 +41,7 @@ void QuickSort::FindPairs()
 	std::cout << "Ilosc par: " << pairs << "\n";
 }
 
-void QuickSort::Sort(std::vector<int> myArray, int a, int b)
+void QuickSort::Sort(std::vector<long int> myArray, long int a, long int b)
 {
 	int q = 0;
 	if (a < b)
@@ -52,12 +52,12 @@ void QuickSort::Sort(std::vector<int> myArray, int a, int b)
 	}
 }
 
-int QuickSort::Split(std::vector<int> myArray, int a, int b)
+int QuickSort::Split(std::vector<long int> myArray, long int a, long int b)
 {
-	int x = myArray[a];
-	int i = a;
-	int j = b;
-	int w = 0;
+	long int x = myArray[a];
+	long int i = a;
+	long int j = b;
+	long int w = 0;
 	while (true)
 	{
 		while (myArray[j] > x)
@@ -83,13 +83,13 @@ int QuickSort::Split(std::vector<int> myArray, int a, int b)
 	}
 }
 
-std::vector<int> QuickSort::Fill()
+std::vector<long int> QuickSort::Fill()
 {
-	std::vector<int> temp;
+	std::vector<long int> temp;
 	temp.resize(size);
-	for (int i = 0; i < size; i++)
+	for (long int i = 0; i < size; i++)
 	{
-		temp[i] = (std::rand() % size) - (std::rand() % size);
+		temp[i] = (std::rand() % 20000) - (std::rand() % 20000);
 	}
 	return temp;
 }

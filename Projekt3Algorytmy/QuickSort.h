@@ -8,16 +8,16 @@
 class QuickSort
 {
 public:
-	QuickSort(int size, int distance);
+	QuickSort(long int size, long int distance);
 	~QuickSort();
 	void FindPairs();
 
 private:
-	void Sort(std::vector<int> myArray, int a, int b);
-	int Split(std::vector<int> myArray, int a, int b);
-	std::vector<int> Fill();
-	int distance;
+	void Sort(std::vector<long int> myArray, long int a, long int b);
+	int Split(std::vector<long int> myArray, long int a, long int b);
+	std::vector<long int> Fill();
+	long int R;
 	size_t size;
-	int pairs;
+	long int pairs;
 };
 

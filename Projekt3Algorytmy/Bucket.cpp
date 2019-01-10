@@ -3,9 +3,9 @@
 
 
 
-Bucket::Bucket(int size, int distance)
+Bucket::Bucket(long int size, long int distance)
 {
-	this->distance = distance;
+	this->R = distance;
 	MyArray.resize(size);
 	Fill();
 }
@@ -16,7 +16,7 @@ Bucket::~Bucket()
 
 void Bucket::FindPairs()
 {
-	int pairs = 0;
+	long int pairs = 0;
 	auto start = std::chrono::system_clock::now();
 
 	Hash();
@@ -43,7 +43,7 @@ void Bucket::FindPairs()
 			{
 				for (auto lists2 = lists1->second.begin(); lists2 != lists1->second.end(); ++lists2) //bierzemy elementy z listy drugiego kubelka
 				{
-					if ((abs(MyArray[*lists] - MyArray[*lists2]) < distance) && (abs(MyArray[*lists] - MyArray[*lists2]) > 0)) //porownujemy odeglosc i sprawdzamy wystepowanie powtorzen
+					if ((abs(MyArray[*lists] - MyArray[*lists2]) < R) && (abs(MyArray[*lists] - MyArray[*lists2]) > 0)) //porownujemy odeglosc i sprawdzamy wystepowanie powtorzen
 					{
 						//std::cout << "Para punktow: " << MyArray[*lists] << ", " << MyArray[*lists2] << std::endl;
 						pairs++;
@@ -61,25 +61,17 @@ void Bucket::FindPairs()
 
 void Bucket::Fill()
 {
-	for (int i = 0; i < MyArray.size(); i++)
+	for (long int i = 0; i < MyArray.size(); i++)
 	{
-		MyArray[i] = (std::rand() % MyArray.size()) - (std::rand() % MyArray.size());
-	}
-}
-
-void Bucket::Print() const
-{
-	for (int i = 0; i < MyArray.size(); i++)
-	{
-		std::cout << "MyArray [ " << i << " ] = " << MyArray[i] << "\n";
+		MyArray[i] = (std::rand() % 20000) - (std::rand() % 20000);
 	}
 }
 
 void Bucket::Hash()
 {
-	for (int i = 0; i < MyArray.size(); i++)
+	for (long int i = 0; i < MyArray.size(); i++)
 	{
-		Buckets[floor(MyArray[i] / distance)].push_back(i);
+		Buckets[floor(MyArray[i] / R)].push_back(i);
 	}
 }
 

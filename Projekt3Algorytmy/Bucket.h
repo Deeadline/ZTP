@@ -10,16 +10,15 @@
 class Bucket
 {
 public:
-	Bucket(int size, int distance);
+	Bucket(long int size, long int distance);
 	~Bucket();
 	void FindPairs();
 private:
-	std::map<int, std::vector<int>> Buckets;
-	int distance;
-	std::vector<int> MyArray;
+	std::map<long int, std::vector<long int>> Buckets;
+	long int R;
+	std::vector<long int> MyArray;
 
 	void Fill();
-	void Print() const;
 	void Hash();
 };
 
